@@ -29,5 +29,5 @@ class DrawActorsAction(Action):
 
         self._output_service.clear_screen()
         for values in cast.values():  
-            self._output_service.draw_actors(values["brick"])
+            self._output_service.draw_actors(values)
         self._output_service.flush_buffer()
