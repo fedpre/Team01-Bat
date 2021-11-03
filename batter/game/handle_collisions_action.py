@@ -24,7 +24,7 @@ class HandleCollisionsAction(Action):
         ###### Handle collisions with the bricks ######
         for brick in bricks:
             if ball.get_position().equals(brick.get_position()):
-                brick.set_text("") 
+                bricks.remove(brick)
                 ball.set_velocity(ball.get_velocity().random_reverse())
         
         ###### Handle collisions with the paddle ######
@@ -37,7 +37,6 @@ class HandleCollisionsAction(Action):
             if ball.get_position().equals(Point(i, 1)):
                 ball.set_velocity(ball.get_velocity().reverse_y())
 
-
         ###### Handle collisions with the bottom ######
         for i in range(1, constants.MAX_X):
             if ball.get_position().equals(Point(i, constants.MAX_Y)):
@@ -46,5 +45,5 @@ class HandleCollisionsAction(Action):
 
         ###### Handle collisions with the walls ######
         for i in range(1, constants.MAX_Y):
-            if ball.get_position().equals(Point(0, i)) or ball.get_position().equals(Point(constants.MAX_X, i)):
+            if ball.get_position().equals(Point(1, i)) or ball.get_position().equals(Point(constants.MAX_X, i)):
                 ball.set_velocity(ball.get_velocity().reverse_x())
