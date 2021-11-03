@@ -20,6 +20,8 @@ class HandleCollisionsAction(Action):
         ball = cast["ball"][0] # there's only one
         paddle = cast["paddle"] # there's only one
         bricks = cast["brick"]
+        wall_left = cast["wall_left"]
+        wall_right = cast["wall_right"]
 
         ###### Handle collisions with the bricks ######
         for brick in bricks:
@@ -41,9 +43,16 @@ class HandleCollisionsAction(Action):
         for i in range(1, constants.MAX_X):
             if ball.get_position().equals(Point(i, constants.MAX_Y)):
                 ball.set_velocity(ball.get_velocity().reverse_y())
-                #sys.exit()
+                # sys.exit()
 
         ###### Handle collisions with the walls ######
-        for i in range(1, constants.MAX_Y):
-            if ball.get_position().equals(Point(1, i)) or ball.get_position().equals(Point(constants.MAX_X, i)):
+        # for i in range(1, constants.MAX_Y):
+        #     if ball.get_position().equals(Point(1, i)) or ball.get_position().equals(Point(constants.MAX_X, i)):
+        #         ball.set_velocity(ball.get_velocity().reverse_x())
+        for wall_piece in wall_left:
+            if ball.get_position().equals(wall_piece.get_position()):
+                ball.set_velocity(ball.get_velocity().reverse_x())
+
+        for wall_piece in wall_right:
+            if ball.get_position().equals(wall_piece.get_position()):
                 ball.set_velocity(ball.get_velocity().reverse_x())

@@ -38,7 +38,7 @@ class MoveActorsAction(Action):
         y1 = position.get_y()
         x2 = velocity.get_x()
         y2 = velocity.get_y()
-        x = x1 + x2 
+        x = x1 + x2
         y = y1 + y2
         position = Point(x, y)
         actor.set_position(position)

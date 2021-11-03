@@ -133,7 +133,7 @@ class Point:
         """
         possibilities = [1, -1]
         random_possibility_x = random.choice(possibilities)
-        x = self._x * random_possibility_x
+        x = random_possibility_x
         y = self._y * -1
         return Point(x, y)
         

@@ -33,6 +33,23 @@ def main(screen):
             brick.set_text("*")
             brick.set_position(position)
             cast["brick"].append(brick)
+    
+    cast['wall_left'] = []
+    for i in range(1, constants.MAX_Y):
+        position = Point(1, i)
+        wall_piece = Actor()
+        wall_piece.set_text('')
+        wall_piece.set_position(position)
+        cast['wall_left'].append(wall_piece)
+
+    cast['wall_right'] = []
+    for i in range(1, constants.MAX_Y):
+        position = Point(constants.MAX_X, i)
+        wall_piece = Actor()
+        wall_piece.set_text('')
+        wall_piece.set_position(position)
+        cast['wall_right'].append(wall_piece)
+
 
     x = int(constants.MAX_X / 2)
     y = int(constants.MAX_Y / 2)
