@@ -16,13 +16,14 @@ def main(screen):
     # create the cast {key: tag, value: list}
     cast = {}
 
-    x = int(constants.MAX_X / 2)
-    y = int(constants.MAX_Y - 1)
-    position = Point(x, y)
-    paddle = Actor()
-    paddle.set_text("===========")
-    paddle.set_position(position)
-    cast["paddle"] = [paddle]
+    cast['paddle'] = []
+    for x_crd in range(int(constants.MAX_X / 2), int(constants.MAX_X / 2) + constants.PADDLE_LENGTH):
+        y_crd = int(constants.MAX_Y - 1)
+        position = Point(x_crd, y_crd)
+        piece = Actor()
+        piece.set_text('=')
+        piece.set_position(position)
+        cast['paddle'].append(piece)
 
     cast["brick"] = []
     for x in range(5, 75):
@@ -37,7 +38,7 @@ def main(screen):
     y = int(constants.MAX_Y / 2)
     position = Point(x, y)
     #######
-    velocity = Point(-1, -1) # Given direction to the ball
+    velocity = Point(1, -1) # Initial direction of the ball
     #######
     ball = Actor()
     ball.set_text("@")
@@ -52,11 +53,11 @@ def main(screen):
     output_service = OutputService(screen)
     control_actors_action = ControlActorsAction(input_service)
     move_actors_action = MoveActorsAction()
-    handle_collisions_acition = HandleCollisionsAction()
+    handle_collisions_action = HandleCollisionsAction()
     draw_actors_action = DrawActorsAction(output_service)
     
     script["input"] = [control_actors_action]
-    script["update"] = [move_actors_action, handle_collisions_acition]
+    script["update"] = [move_actors_action, handle_collisions_action]
     script["output"] = [draw_actors_action]
 
     # start the game

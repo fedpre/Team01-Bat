@@ -10,7 +10,7 @@ class InputService:
 
     Attributes:
         _screen (Screen): An Asciimatics screen.
-        _keys (list): Points for up, dn, lt, rt.
+        _keys (list): Points for dn, rt.
     """
 
     def __init__(self, screen):
@@ -19,8 +19,6 @@ class InputService:
         self._keys = {}
         self._keys[97] = Point(-1, 0) # a
         self._keys[100] = Point(1, 0) # d
-        #self._keys[119] = Point(0, -1) # w
-        #self._keys[115] = Point(0, 1) # s
         
     def get_direction(self):
         """Gets the selected direction for the given player.

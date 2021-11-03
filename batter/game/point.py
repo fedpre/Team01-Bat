@@ -1,3 +1,5 @@
+import random
+
 class Point:
     """Represents distance from an origin (0, 0).
 
@@ -89,3 +91,49 @@ class Point:
         x = self._x * -1
         y = self._y * -1
         return Point(x, y)
+
+    def reverse_y(self):
+        """Gets a new Point that is the reverse of this one in the y direction.
+        
+        Returns:
+            Point: A new Point that is reversed.
+        """
+        x = self._x
+        y = self._y * -1
+        return Point(x, y)
+
+    def reverse_x(self):
+        """Gets a new Point that is the reverse of this one in the x direction.
+        
+        Returns:
+            Point: A new Point that is reversed.
+        """
+        x = self._x * -1
+        y = self._y 
+        return Point(x, y)
+
+    def random_reverse(self):
+        """Gets a new Point that is randomly reversed of the one given.
+        
+        Returns:
+            Point: A new Point that is reversed.
+        """
+        possibilities = [1, -1]
+        random_possibility_x = random.choice(possibilities)
+        random_possibility_y = random.choice(possibilities)
+        x = self._x * random_possibility_x
+        y = self._y * random_possibility_y
+        return Point(x, y)
+
+    def random_reverse_x(self):
+        """Gets a new Point that is randomly reversed of the one given.
+        
+        Returns:
+            Point: A new Point that is reversed.
+        """
+        possibilities = [1, -1]
+        random_possibility_x = random.choice(possibilities)
+        x = self._x * random_possibility_x
+        y = self._y * -1
+        return Point(x, y)
+        
