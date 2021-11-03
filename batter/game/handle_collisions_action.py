@@ -46,5 +46,5 @@ class HandleCollisionsAction(Action):
 
         ###### Handle collisions with the walls ######
         for i in range(1, constants.MAX_Y):
-            if ball.get_position().equals(Point(1, i)) or ball.get_position().equals(Point(constants.MAX_X, i)):
+            if ball.get_position().equals(Point(0, i)) or ball.get_position().equals(Point(constants.MAX_X, i)):
                 ball.set_velocity(ball.get_velocity().reverse_x())
