@@ -102,3 +102,5 @@ class Actor:
             position (Point): The given tag.
         """
         self._tag = tag
+    
+    
