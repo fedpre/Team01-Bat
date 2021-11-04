@@ -40,7 +40,7 @@ root                    (project root folder)
 ## Authors
 ---
 * Federico Pregnolato - pre13009@byui.edu
-*
+* Brian C Lewis - 1808ub@gmail.com
 *
 *
 *
