@@ -22,6 +22,8 @@ class HandleCollisionsAction(Action):
         bricks = cast["brick"]
         wall_left = cast["wall_left"]
         wall_right = cast["wall_right"]
+        self._revert_velocity = None
+
 
         ###### Handle collisions with the bricks ######
         for brick in bricks:
@@ -31,9 +33,15 @@ class HandleCollisionsAction(Action):
         
         ###### Handle collisions with the paddle ######
         for piece in paddle:
+            
             if ball.get_position().equals(piece.get_position()):
                 ball.set_velocity(ball.get_velocity().random_reverse_x())
-
+                # location = ball.get_velocity()
+                # location_x = location.get_x()  
+                # if location_x > 0:
+                #     ball.set_velocity(Point(location_x + .1, location.get_y()*-1))
+                # else:
+                #     ball.set_velocity(Point(location_x - .1, location.get_y()*-1))
         ###### Handle collisions with the top ######
         for i in range(1, constants.MAX_X):
             if ball.get_position().equals(Point(i, 1)):
@@ -46,9 +54,6 @@ class HandleCollisionsAction(Action):
                 # sys.exit()
 
         ###### Handle collisions with the walls ######
-        # for i in range(1, constants.MAX_Y):
-        #     if ball.get_position().equals(Point(1, i)) or ball.get_position().equals(Point(constants.MAX_X, i)):
-        #         ball.set_velocity(ball.get_velocity().reverse_x())
         for wall_piece in wall_left:
             if ball.get_position().equals(wall_piece.get_position()):
                 ball.set_velocity(ball.get_velocity().reverse_x())
@@ -56,3 +61,13 @@ class HandleCollisionsAction(Action):
         for wall_piece in wall_right:
             if ball.get_position().equals(wall_piece.get_position()):
                 ball.set_velocity(ball.get_velocity().reverse_x())
+
+        # for wall_piece in wall_left:
+        #     if ball.get_position().get_x() < wall_piece.get_position().get_x():
+        #         ball.set_velocity(ball.get_velocity().reverse_x())
+
+        # for wall_piece in wall_right:
+        #     if ball.get_position().get_x() > wall_piece.get_position().get_x():
+        #         ball.set_velocity(ball.get_velocity().reverse_x())
+
+     

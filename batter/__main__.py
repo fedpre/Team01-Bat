@@ -58,7 +58,7 @@ def main(screen):
     velocity = Point(1, -1) # Initial direction of the ball
     #######
     ball = Actor()
-    ball.set_text("@")
+    ball.set_text("⚽️")
     ball.set_position(position)
     ball.set_velocity(velocity)
     cast["ball"] = [ball]
