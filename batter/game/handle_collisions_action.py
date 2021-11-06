@@ -50,8 +50,8 @@ class HandleCollisionsAction(Action):
         ###### Handle collisions with the bottom ######
         for i in range(1, constants.MAX_X):
             if ball.get_position().equals(Point(i, constants.MAX_Y)):
-                ball.set_velocity(ball.get_velocity().reverse_y())
-                # sys.exit()
+                # ball.set_velocity(ball.get_velocity().reverse_y()) ### Keep this for testing purposes
+                sys.exit()
 
         ###### Handle collisions with the walls ######
         for wall_piece in wall_left:
@@ -62,12 +62,5 @@ class HandleCollisionsAction(Action):
             if ball.get_position().equals(wall_piece.get_position()):
                 ball.set_velocity(ball.get_velocity().reverse_x())
 
-        # for wall_piece in wall_left:
-        #     if ball.get_position().get_x() < wall_piece.get_position().get_x():
-        #         ball.set_velocity(ball.get_velocity().reverse_x())
-
-        # for wall_piece in wall_right:
-        #     if ball.get_position().get_x() > wall_piece.get_position().get_x():
-        #         ball.set_velocity(ball.get_velocity().reverse_x())
 
      
