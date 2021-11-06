@@ -1,3 +1,4 @@
+
 import random
 
 class Point:
@@ -33,6 +34,7 @@ class Point:
         x = self._x + other.get_x()
         y = self._y + other.get_y()
         return Point(x, y)
+
 
     def add_x(self, other):
         """Gets a new point that is the sum of this and the given one.
@@ -137,3 +139,5 @@ class Point:
         y = self._y * -1
         return Point(x, y)
         
+
+

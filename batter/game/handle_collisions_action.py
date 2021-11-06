@@ -4,6 +4,7 @@ from game.action import Action
 from game.point import Point
 import sys
 
+
 class HandleCollisionsAction(Action):
     """A code template for handling collisions. The responsibility of this class of objects is to update the game state when actors collide.
     
@@ -17,12 +18,13 @@ class HandleCollisionsAction(Action):
         Args:
             cast (dict): The game actors {key: tag, value: list}.
         """
+
         ball = cast["ball"][0] # there's only one
         paddle = cast["paddle"] # there's only one
         bricks = cast["brick"]
         wall_left = cast["wall_left"]
         wall_right = cast["wall_right"]
-        self._revert_velocity = None
+
 
 
         ###### Handle collisions with the bricks ######
@@ -62,5 +64,3 @@ class HandleCollisionsAction(Action):
             if ball.get_position().equals(wall_piece.get_position()):
                 ball.set_velocity(ball.get_velocity().reverse_x())
 
-
-     

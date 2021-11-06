@@ -30,3 +30,4 @@ class ControlActorsAction(Action):
         paddle = cast["paddle"] # there's only one in the cast
         for piece in paddle:    
             piece.set_velocity(direction) 
+
