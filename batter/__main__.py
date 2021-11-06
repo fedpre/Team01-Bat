@@ -81,4 +81,5 @@ def main(screen):
     director = Director(cast, script)
     director.start_game()
 
+constants.PADDLE_LENGTH = int(input("What's the length of the paddle (10-20)? "))
 Screen.wrapper(main)
