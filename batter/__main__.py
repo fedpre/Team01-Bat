@@ -16,13 +16,14 @@ def main(screen):
     # create the cast {key: tag, value: list}
     cast = {}
 
-    x = int(constants.MAX_X / 2)
-    y = int(constants.MAX_Y - 1)
-    position = Point(x, y)
-    paddle = Actor()
-    paddle.set_text("===========")
-    paddle.set_position(position)
-    cast["paddle"] = [paddle]
+    cast['paddle'] = []
+    for x_crd in range(int(constants.MAX_X / 2), int(constants.MAX_X / 2) + constants.PADDLE_LENGTH):
+        y_crd = int(constants.MAX_Y - 1)
+        position = Point(x_crd, y_crd)
+        piece = Actor()
+        piece.set_text('=')
+        piece.set_position(position)
+        cast['paddle'].append(piece)
 
     cast["brick"] = []
     for x in range(5, 75):
@@ -32,13 +33,32 @@ def main(screen):
             brick.set_text("*")
             brick.set_position(position)
             cast["brick"].append(brick)
+    
+    cast['wall_left'] = []
+    for i in range(1, constants.MAX_Y):
+        position = Point(1, i)
+        wall_piece = Actor()
+        wall_piece.set_text('')
+        wall_piece.set_position(position)
+        cast['wall_left'].append(wall_piece)
+
+    cast['wall_right'] = []
+    for i in range(1, constants.MAX_Y):
+        position = Point(constants.MAX_X, i)
+        wall_piece = Actor()
+        wall_piece.set_text('')
+        wall_piece.set_position(position)
+        cast['wall_right'].append(wall_piece)
+
 
     x = int(constants.MAX_X / 2)
     y = int(constants.MAX_Y / 2)
     position = Point(x, y)
-    velocity = Point(1, -1)
+    #######
+    velocity = Point(1, -1) # Initial direction of the ball
+    #######
     ball = Actor()
-    ball.set_text("@")
+    ball.set_text("⚽️")
     ball.set_position(position)
     ball.set_velocity(velocity)
     cast["ball"] = [ball]
@@ -50,11 +70,11 @@ def main(screen):
     output_service = OutputService(screen)
     control_actors_action = ControlActorsAction(input_service)
     move_actors_action = MoveActorsAction()
-    handle_collisions_acition = HandleCollisionsAction()
+    handle_collisions_action = HandleCollisionsAction()
     draw_actors_action = DrawActorsAction(output_service)
     
     script["input"] = [control_actors_action]
-    script["update"] = [move_actors_action, handle_collisions_acition]
+    script["update"] = [move_actors_action, handle_collisions_action]
     script["output"] = [draw_actors_action]
 
     # start the game

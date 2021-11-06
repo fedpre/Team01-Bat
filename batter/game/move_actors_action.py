@@ -1,6 +1,8 @@
 from game import constants
 from game.action import Action
 from game.point import Point
+import math
+
 
 class MoveActorsAction(Action):
     """A code template for moving actors. The responsibility of this class of
@@ -38,7 +40,9 @@ class MoveActorsAction(Action):
         y1 = position.get_y()
         x2 = velocity.get_x()
         y2 = velocity.get_y()
-        x = 1 + (x1 + x2 - 1) % (constants.MAX_X - 1)
-        y = 1 + (y1 + y2 - 1) % (constants.MAX_Y - 1)
+
+        x = math.ceil(1 + (x1 + x2 - 1)) #change angle on ball with Math.ceil
+        y = 1 + (y1 + y2 - 1)
+
         position = Point(x, y)
         actor.set_position(position)
