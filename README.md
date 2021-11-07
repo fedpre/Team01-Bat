@@ -41,6 +41,6 @@ root                    (project root folder)
 ---
 * Federico Pregnolato - pre13009@byui.edu
 * Brian C Lewis - 1808ub@gmail.com
-*
+* Tamara Meisman - tamara@meisman.us
 *
 *
