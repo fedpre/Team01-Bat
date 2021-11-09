@@ -56,11 +56,11 @@ class HandleCollisionsAction(Action):
                 sys.exit()
 
         ###### Handle collisions with the walls ######
-        for wall_piece in wall_left:
-            if ball.get_position().equals(wall_piece.get_position()):
+        for wall_left in wall_left:
+            if ball.get_position().equals(wall_left.get_position()):
                 ball.set_velocity(ball.get_velocity().reverse_x())
 
-        for wall_piece in wall_right:
-            if ball.get_position().equals(wall_piece.get_position()):
+        for wall_right in wall_right:
+            if ball.get_position().equals(wall_right.get_position()):
                 ball.set_velocity(ball.get_velocity().reverse_x())
 
